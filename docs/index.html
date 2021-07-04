@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-    <title>BESTBASTARDGANPUNKS</title>
+    <title>Exploring Etheria</title>
 
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="css/bootstrap-vue.min.css"/>
@@ -50,8 +50,8 @@
       <b-container fluid class="m-0 p-2">
         <div>
           <b-navbar variant="light">
-            <b-navbar-brand to="./" variant="primary" v-b-popover.hover.bottom="'Best BastardGANPunks'">
-              BESTBASTARDGANPUNKS
+            <b-navbar-brand to="./" variant="primary" v-b-popover.hover.bottom="'Exploring Etheria'">
+              Exploring Etheria
             </b-navbar-brand>
             <div v-for="item in getSelectedShowcase">
               <b-link @click="addAsset(item)">
@@ -59,14 +59,16 @@
               </b-link>
             </div>
             <b-navbar-nav class="ml-auto">
-              <b-button size="sm" variant="outline-primary" class="ml-4" v-b-popover.hover="'CONNECT TO SEE YOUR BASTARDS'" @click="connect();" v-if="!connected">CONNECT MY FUCKING WALLET</b-button>
-              <b-button size="sm" variant="outline-primary" class="ml-4" v-b-popover.hover="'DISCONNECT TO SEE BOKKY\'S BASTARDS'" @click="disconnect();" v-if="connected">MY FUCKING WALLET {{ account.substring(0, 10).toUpperCase() }}</b-button>
+              <b-button size="sm" variant="outline-primary" class="ml-4" @click="connect();" v-if="!connected">CONNECT WALLET</b-button>
+              <b-button size="sm" variant="outline-primary" class="ml-4" @click="disconnect();" v-if="connected">DISCONNECT WALLET {{ account.substring(0, 10).toUpperCase() }}</b-button>
             </b-navbar-nav>
           </b-navbar>
         </div>
 
         <div>
           <b-card no-body class="mt-1">
+
+            <!--
             <div>
               <b-modal ref="my-modal" hide-footer @shown="onGIFFrameSelectionModalOpened">
                 <template #modal-title>
@@ -88,9 +90,11 @@
                 </b-input-group>
               </b-modal>
             </div>
+            -->
 
             <b-tabs card v-model="tabIndex" align="right">
 
+              <!--
               <b-tab title="SEXY BASTARDS">
                 <b-card-text>
                   <div class="d-flex m-0 p-0" style="height: 37px;">
@@ -105,12 +109,6 @@
                     </div>
                     <div class="pr-1 flex-grow-1">
                     </div>
-                    <!--
-                    <div class="pl-1">
-                      <b-button size="sm" variant="link" class="m-0 p-0" v-b-popover.hover="'Close sidebar'" ><b-icon-list shift-v="-1" font-scale="1.7"></b-icon-list></b-button>
-                      <b-button size="sm" variant="link" class="m-0 p-0" v-b-popover.hover="'Close sidebar'" ><b-icon-grid3x3-gap shift-v="-1" font-scale="1.7"></b-icon-grid3x3-gap></b-button>
-                    </div>
-                    -->
                     <div class="pl-2">
                       <font size="-2">{{ getSearchResultsRows }}/{{ getTotalSupply }}</font>
                     </div>
@@ -126,10 +124,8 @@
                   </div>
 
                   <div>
-                    <!-- visible -->
                     <b-collapse id="collapse-search" class="m-2">
                       <b-card>
-
                         <b-row v-for="categoryKey in Object.keys(getCategories).sort()">
                           <b-col> {{ categoryKey }}</b-col>
                           <b-col>
@@ -138,13 +134,6 @@
                             </b-row>
                           </b-col>
                         </b-row>
-                        <!--
-                        <p class="card-text">Collapse contents Here</p>
-                        <b-button v-b-toggle.collapse-search-inner size="sm">Toggle Inner Collapse</b-button>
-                        <b-collapse id="collapse-search-inner" class="mt-2">
-                          <b-card>Hello!</b-card>
-                        </b-collapse>
-                        -->
                       </b-card>
                     </b-collapse>
                   </div>
@@ -158,12 +147,6 @@
                               {{ '#' + record.tokenId }}
                             </span>
                           </template>
-                          <!--
-                          <b-link :href="record.permalink + '?ref=0x000001f568875F378Bf6d170B790967FE429C81A'" v-b-popover.hover="'View on OpenSea.io'" target="_blank">
-                            <b-img-lazy width="220%" :src="record.osimage" />
-                            -->
-                            <!-- <b-avatar rounded="sm" variant="light" size="15.0rem" :src="record.osimage"></b-avatar> -->
-                          <!-- </b-link> -->
                           <b-link @click="addAsset(record.tokenId)" v-b-popover.hover="'Click for details'">
                             <b-img-lazy width="220%" :src="record.osimage" />
                           </b-link>
@@ -186,12 +169,7 @@
                       <template #cell(image)="data">
                         <b-link @click="addAsset(data.item.tokenId)" v-b-popover.hover="'Click for details'">
                           <b-img-lazy width="200%" :src="data.item.osimage" />
-                          <!-- <b-avatar rounded="sm" variant="light" size="10.0rem" :src="data.item.osimage"></b-avatar> -->
                         </b-link>
-                        <!--
-                        <b-link :href="data.item.permalink + '?ref=0x000001f568875F378Bf6d170B790967FE429C81A'" v-b-popover.hover="'View on OpenSea.io'" target="_blank">
-                        </b-link>
-                        -->
                       </template>
                       <template #cell(description)="data">
                         <span v-for="line in data.item.description.split('\n')">
@@ -207,7 +185,9 @@
                   </div>
                 </b-card-text>
               </b-tab>
+              -->
 
+              <!--
               <b-tab title="MY FUCKING WALLET">
                 <b-card-text>
                   SELECT <em>MY SEXY BASTARDS</em> IN THE PREVIOUS TAB TO VIEW YOUR BASTARDS.<br />
@@ -215,7 +195,9 @@
                   </b-table>
                 </b-card-text>
               </b-tab>
+              -->
 
+              <!--
               <b-tab title="INFO">
                 <h6 class="mb-1">WHAT IS THIS WEBSHITE ABOUT?</h6>
                 <b-card-text>
@@ -280,6 +262,7 @@
                     <li>SEND YOUR FUCKING DONATIONS TO BokkyPooBah.eth. ETH, ERC20S, AND NFTS ALL ACCEPTECD. DON'T BE A FUCKING STINGY BASTARD!!!</li>
                   </ul>
                 </b-card-text>
+                -->
 
                 <b-card-text class="mt-5">
                   ENJOY!
