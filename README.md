@@ -2,6 +2,8 @@
 
 See https://bokkypoobah.github.io/ExploringEtheria/.
 
+Exploring [https://etheria.world/](https://etheria.world/). Not affiliated with this project.
+
 <br />
 
 ## Etheria Info
@@ -22,4 +24,4 @@ Main contracts, copies stored in [other_contracts/](other_contracts/):
 
 Enjoy!
 
-(c) BokkyPooBah / Bok Consulting Pty Ltd - Jul 2021. The MIT Licence. Not affiliated with [https://etheria.world/](https://etheria.world/).
+(c) BokkyPooBah / Bok Consulting Pty Ltd - Jul 2021. The MIT Licence.

@@ -282,6 +282,7 @@
         data: {
           connected: false,
           account: null,
+          owners: [],
           tokensOwned: [],
           tabIndex: 0,
           abortSearch: false,
@@ -476,7 +477,19 @@
               if (network.chainId == 1) {
                 this.connected = true;
 
+                const owners = [];
                 const etheria = new ethers.Contract(ETHERIAADDRESS, ETHERIAABI, provider);
+                for (let x = 0; x < 33; x++) {
+                  const row = [];
+                  for (let y = 0; y < 33; y++) {
+                    const owner = await new etheria.getOwner(x, y);
+                    row.push(owner);
+                    console.log("x: " + x + ", y: " + y + " => " + owner);
+                  }
+                  owners.push(row);
+                }
+                this.owners = owners;
+                localStorage.setItem('etheriaOwners', JSON.stringify(owners));
 
 
 
@@ -542,6 +555,10 @@
           if (localStorage.getItem('bastardsOwned')) {
             this.tokensOwned = JSON.parse(localStorage.getItem('bastardsOwned'));
           }
+          if (localStorage.getItem('etheriaOwners')) {
+            this.owners = JSON.parse(localStorage.getItem('etheriaOwners'));
+          }
+
           // console.log("mounted: bastardsOwned: " + JSON.stringify(this.tokensOwned, null, 2));
           // hljs.highlightAll();
         }
