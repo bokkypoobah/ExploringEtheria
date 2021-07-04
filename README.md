@@ -8,7 +8,7 @@ See https://bokkypoobah.github.io/ExploringEtheria/.
 
 GitHub - [https://github.com/cyrusadkisson/etheria/tree/master/contracts](https://github.com/cyrusadkisson/etheria/tree/master/contracts).
 
-Main contracts:
+Main contracts, copies stored in [other_contracts/](other_contracts/):
 
 * [etheria-1pt2.sol](https://github.com/cyrusadkisson/etheria/blob/master/contracts/etheria-1pt2.sol) deployed to [0xB21f8684f23Dbb1008508B4DE91a0aaEDEbdB7E4](https://etherscan.io/address/0xB21f8684f23Dbb1008508B4DE91a0aaEDEbdB7E4#code) on [Nov-01-2015 01:20:11 AM +UTC](https://etherscan.io/tx/0x572afc6344a779345a57fba7355c9c26b221c1039fa46fd3d5dce180a4e82108)
 * [etheria_BlockDefStorage.sol](https://github.com/cyrusadkisson/etheria/blob/master/contracts/etheria_BlockDefStorage.sol) deployed to [0xd4E686A1FBf1Bfe058510f07Cd3936D3D5A70589](https://etherscan.io/address/0xd4e686a1fbf1bfe058510f07cd3936d3d5a70589#code) on [Oct-29-2015 07:04:15 PM +UTC](https://etherscan.io/tx/0x485e7d332f47205a7aaa9768d1b0eb9140fe59d526d349f4425979ed3fc63622)

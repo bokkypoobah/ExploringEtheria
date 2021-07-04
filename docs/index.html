@@ -475,6 +475,13 @@
               const network = await provider.getNetwork();
               if (network.chainId == 1) {
                 this.connected = true;
+
+                const etheria = new ethers.Contract(ETHERIAADDRESS, ETHERIAABI, provider);
+
+
+
+
+
                 const banana = new ethers.Contract(BASTARDADDRESS, BASTARDABI, provider);
                 const tokensOfOwner = await banana.tokensOfOwner(this.account);
                 const tokensOwned = {};
