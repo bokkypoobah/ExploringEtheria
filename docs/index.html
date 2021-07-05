@@ -305,6 +305,7 @@
           connected: false,
           account: null,
           owners: [],
+          status: [],
           tokensOwned: [],
           tabIndex: 0,
           abortSearch: false,
@@ -499,33 +500,42 @@
               if (network.chainId == 1) {
                 this.connected = true;
 
-                const owners = [];
-                const etheria = new ethers.Contract(ETHERIAADDRESS, ETHERIAABI, provider);
-                for (let x = 0; x < 33; x++) {
-                  const row = [];
-                  for (let y = 0; y < 33; y++) {
-                    const owner = await new etheria.getOwner(x, y);
-                    row.push(owner);
-                    console.log("x: " + x + ", y: " + y + " => " + owner);
+                // const owners = [];
+                const etheriaHelper = new ethers.Contract(ETHERIAHELPERADDRESS, ETHERIAHELPERABI, provider);
+                const owners = await new etheriaHelper.owners();
+                console.log("owners: " + owners);
+
+                // const etheria = new ethers.Contract(ETHERIAADDRESS, ETHERIAABI, provider);
+                // const locked = await new etheria.getLocked();
+                // console.log("locked: " + locked);
+
+                if (false) {
+                  for (let x = 0; x < 33; x++) {
+                    const row = [];
+                    for (let y = 0; y < 33; y++) {
+                      const owner = await new etheria.getOwner(x, y);
+                      row.push(owner);
+                      console.log("x: " + x + ", y: " + y + " => " + owner);
+                    }
+                    owners.push(row);
                   }
-                  owners.push(row);
+                  this.owners = owners;
+                  localStorage.setItem('etheriaOwners', JSON.stringify(owners));
                 }
-                this.owners = owners;
-                localStorage.setItem('etheriaOwners', JSON.stringify(owners));
 
 
 
-
-
-                const banana = new ethers.Contract(BASTARDADDRESS, BASTARDABI, provider);
-                const tokensOfOwner = await banana.tokensOfOwner(this.account);
-                const tokensOwned = {};
-                for (let i in tokensOfOwner) {
-                  let t = tokensOfOwner[i];
-                  tokensOwned[t.toString()] = true;
-                }
-                this.tokensOwned = tokensOwned;
-                // console.log("bastardsOwned: " + JSON.stringify(tokensOwned, null, 2));
+                //
+                //
+                // const banana = new ethers.Contract(BASTARDADDRESS, BASTARDABI, provider);
+                // const tokensOfOwner = await banana.tokensOfOwner(this.account);
+                // const tokensOwned = {};
+                // for (let i in tokensOfOwner) {
+                //   let t = tokensOfOwner[i];
+                //   tokensOwned[t.toString()] = true;
+                // }
+                // this.tokensOwned = tokensOwned;
+                // // console.log("bastardsOwned: " + JSON.stringify(tokensOwned, null, 2));
                 localStorage.setItem('bastardsOwned', JSON.stringify(tokensOwned));
               } else {
                 alert("Please switch to the Ethereum mainnet and refresh");
