@@ -22,6 +22,7 @@ Main contracts, copies stored in [other_contracts/](other_contracts/):
 
 ## EtheriaHelper
 
+Deployed to [0x7d0cba86128957633156fbff6a88d9a278ef32e2](https://etherscan.io/address/0x7d0cba86128957633156fbff6a88d9a278ef32e2#code) to receive data in a batch of 33 x 33 = 1,089 records:
 
 ```javascript
 /**
