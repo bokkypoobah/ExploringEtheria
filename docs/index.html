@@ -502,8 +502,15 @@
 
                 // const owners = [];
                 const etheriaHelper = new ethers.Contract(ETHERIAHELPERADDRESS, ETHERIAHELPERABI, provider);
+                console.log(new Date().toUTCString() + " Strating query");
                 const owners = await new etheriaHelper.owners();
-                console.log("owners: " + owners);
+                console.log(new Date().toUTCString() + " owners: " + JSON.stringify(owners).substring(0, 100));
+                const names = await new etheriaHelper.names();
+                console.log(new Date().toUTCString() + " names: " + JSON.stringify(names).substring(0, 100));
+                const statuses = await new etheriaHelper.statuses();
+                console.log(new Date().toUTCString() + " statuses: " + JSON.stringify(statuses).substring(0, 100));
+                const lastFarms = await new etheriaHelper.lastFarms();
+                console.log(new Date().toUTCString() + " lastFarms: " + JSON.stringify(lastFarms).substring(0, 100));
 
                 // const etheria = new ethers.Contract(ETHERIAADDRESS, ETHERIAABI, provider);
                 // const locked = await new etheria.getLocked();
@@ -536,7 +543,7 @@
                 // }
                 // this.tokensOwned = tokensOwned;
                 // // console.log("bastardsOwned: " + JSON.stringify(tokensOwned, null, 2));
-                localStorage.setItem('bastardsOwned', JSON.stringify(tokensOwned));
+                // localStorage.setItem('bastardsOwned', JSON.stringify(tokensOwned));
               } else {
                 alert("Please switch to the Ethereum mainnet and refresh");
               }
