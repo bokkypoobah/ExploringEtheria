@@ -94,6 +94,25 @@
 
             <b-tabs card v-model="tabIndex" align="right">
 
+              <b-tab title="Owners">
+                <b-card-text>
+                  <b-row v-for="(row, rowIndex) in owners" v-bind:key="rowIndex" class="m-0 p-0">
+                    <b-col v-for="(col, colIndex) in row" v-bind:key="colIndex" class="m-0 p-0">
+                      <div v-if="col == '0x000001f568875F378Bf6d170B790967FE429C81A'">
+                        <b-btn variant="success" :href="'https://etherscan.io/address/' + col" class="m-0 p-0">
+                          {{ col.replace('0x0000000000000000000000000000000000000000', '').substring(2, 6) }}
+                        </b-btn>
+                      </div>
+                      <div v-else>
+                        <b-link :href="'https://etherscan.io/address/' + col">
+                          {{ col.replace('0x0000000000000000000000000000000000000000', '').substring(2, 6) }}
+                        </b-link>
+                      </div>
+                    </b-col>
+                  </b-row>
+                </b-card-text>
+              </b-tab>
+
               <!--
               <b-tab title="SEXY BASTARDS">
                 <b-card-text>
